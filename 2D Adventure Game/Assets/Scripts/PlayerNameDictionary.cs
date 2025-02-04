@@ -1,20 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
-public class CharacterMovement : MonoBehaviour
+
+public class PlayerNameDictionary : MonoBehaviour
 {
-    public static CharacterMovement Instance;
+      public static PlayerNameDictionary Instance;
     public GameObject Player;
     public float speed = 0.1f;
 
-    public List<string> myInventory;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-    private void Awake()
+    public TextMeshProUGUI inventoryDisplay;
+    public Dictionary<string, int> myInventoryDict = new Dictionary<string, int>();
+
+     private void Awake()
     {
         if(Instance == null)
         {
@@ -25,6 +25,12 @@ public class CharacterMovement : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
+        myInventoryDict.Add("Sword", 1);
+        DisplayInventory();
     }
 
     // Update is called once per frame
@@ -50,23 +56,13 @@ public class CharacterMovement : MonoBehaviour
 	    Player.transform.position += Vector3.right * speed;
             
         }
-
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {   
-        if (collision.gameObject.tag == "Enemy")
+    public void DisplayInventory()
+    {
+        inventoryDisplay.text = "";
+        foreach (var item in myInventoryDict)
         {
-            Destroy(Player);
+            inventoryDisplay.text += "Item: " + item.Key + ", Quantity: " + item.Value + "\n";  
         }
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("You've enter a house");
-    }
-
-    public void addItem(string item)
-    {
-        myInventory.Add(item);
     }
 }
