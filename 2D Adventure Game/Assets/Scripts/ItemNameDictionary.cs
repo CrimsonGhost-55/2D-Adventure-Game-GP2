@@ -6,12 +6,18 @@ using UnityEngine;
 public class ItemNameDictionary : MonoBehaviour
 {
     public string itemName;
+    public int objectIndex;
     public int itemNumber = 1;
+    //public int itemIndex;
     public PlayerNameDictionary myPlayer;
+    public DialogManager dialogManager;
+    public GameObject pickUp;
     // Start is called before the first frame update
     void Start()
     {
         myPlayer = FindObjectOfType<PlayerNameDictionary>();
+        dialogManager = FindObjectOfType<DialogManager>();
+        pickUp.SetActive(false);
     }
 
     // Update is called once per frame
@@ -20,11 +26,21 @@ public class ItemNameDictionary : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        AddItem();
-        Destroy(gameObject);
+        pickUp.SetActive(true);
+        if (Input.GetKey(KeyCode.Space))
+        {
+            Interact();
+            AddItem();
+            pickUp.SetActive(false);
+            Destroy(gameObject);
+        }
+        
     }
+        
+        
+        
 
     public void AddItem()
     {
@@ -39,6 +55,11 @@ public class ItemNameDictionary : MonoBehaviour
             
         }
         myPlayer.DisplayInventory();
+    }
+
+    public void Interact()
+    {
+        dialogManager.currentIndex = objectIndex;
     }
 
 }

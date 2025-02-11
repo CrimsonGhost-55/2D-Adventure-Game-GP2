@@ -36,22 +36,22 @@ public class PlayerNameDictionary : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.W))
+        if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
 	    Player.transform.position += Vector3.up * speed;
             
         }
-	if(Input.GetKey(KeyCode.S))
+	if(Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
 	    Player.transform.position += Vector3.down * speed;
             
         }
-	if(Input.GetKey(KeyCode.A))
+	if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
 	    Player.transform.position += Vector3.left * speed;
                 
         }
-	if(Input.GetKey(KeyCode.D))
+	if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
 	    Player.transform.position += Vector3.right * speed;
             
