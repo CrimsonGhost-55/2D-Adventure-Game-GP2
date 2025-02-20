@@ -17,13 +17,14 @@ public class ItemNameDictionary : MonoBehaviour
     {
         myPlayer = FindObjectOfType<PlayerNameDictionary>();
         dialogManager = FindObjectOfType<DialogManager>();
+        
         pickUp.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        pickUp = GameObject.Find("PickUpText");
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -36,11 +37,23 @@ public class ItemNameDictionary : MonoBehaviour
             pickUp.SetActive(false);
             Destroy(gameObject);
         }
+        if (myPlayer.applesHaveFell == true && Input.GetKey(KeyCode.Space))
+        {
+            Interact();
+            AddItem();
+            pickUp.SetActive(false);
+            Destroy(gameObject);
+        }
         
     }
-        
-        
-        
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        pickUp.SetActive(false);
+    }
+
+
+
 
     public void AddItem()
     {

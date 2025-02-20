@@ -6,6 +6,12 @@ TagManager:
   tags:
   - Key
   - Enemy
+  - Apple1
+  - Apple2
+  - Apple3
+  - Tree
+  - House
+  - OldMan
   layers:
   - Default
   - TransparentFX
