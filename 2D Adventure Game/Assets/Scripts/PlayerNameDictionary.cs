@@ -11,9 +11,9 @@ public class PlayerNameDictionary : MonoBehaviour
 {
       public static PlayerNameDictionary Instance;
     public GameObject Player;
-    public GameObject Apple1;
-    public GameObject Apple2;
-    public GameObject Apple3;
+    //public GameObject Apple1;
+    //public GameObject Apple2;
+    //public GameObject Apple3;
     public GameObject pickUp;
     public float speed = 0.1f;
     public bool applesHaveFell = false;
@@ -71,9 +71,9 @@ public class PlayerNameDictionary : MonoBehaviour
             isInHouse = false;
         }
 
-        Apple1 = GameObject.Find("Apple1");
-        Apple2 = GameObject.Find("Apple2");
-        Apple3 = GameObject.Find("Apple3");
+        //Apple1 = GameObject.Find("Apple1");
+        //Apple2 = GameObject.Find("Apple2");
+        //Apple3 = GameObject.Find("Apple3");
     }
     public void DisplayInventory()
     {
@@ -86,33 +86,33 @@ public class PlayerNameDictionary : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Tree")
-        {
-            Debug.Log("On Tree");
-            pickUp.SetActive(true);
-            if(Input.GetKey(KeyCode.Space))
-            {
-                applesHaveFell = true;
-                Debug.Log("Button is being pressed");
-                Apple1.transform.position = new Vector2(24.88f, 7.92f);
-                Apple2.transform.position = new Vector2(23.09f, 6.01f);
-                Apple3.transform.position = new Vector2(21.79f, 7.18f);
-                if (applesHaveFell == true)
-                {
-                    Apple1.GetComponent<Collider2D>().enabled = true;
-                    Apple2.GetComponent<Collider2D>().enabled = true;
-                    Apple3.GetComponent<Collider2D>().enabled = true;
-                }
-                else if (applesHaveFell == false)
-                {
-                    Apple1.GetComponent<Collider2D>().enabled = false;
-                    Apple2.GetComponent<Collider2D>().enabled = false;
-                    Apple3.GetComponent<Collider2D>().enabled = false;
-                }
-            }
+        //if(collision.gameObject.tag == "Tree")
+        //{
+        //    Debug.Log("On Tree");
+        //    pickUp.SetActive(true);
+        //    if(Input.GetKey(KeyCode.Space))
+        //    {
+        //        applesHaveFell = true;
+        //        Debug.Log("Button is being pressed");
+        //        Apple1.transform.position = new Vector2(24.88f, 7.92f);
+        //        Apple2.transform.position = new Vector2(23.09f, 6.01f);
+        //        Apple3.transform.position = new Vector2(21.79f, 7.18f);
+        //        if (applesHaveFell == true)
+        //        {
+        //            Apple1.GetComponent<Collider2D>().enabled = true;
+        //            Apple2.GetComponent<Collider2D>().enabled = true;
+        //            Apple3.GetComponent<Collider2D>().enabled = true;
+        //        }
+        //        else if (applesHaveFell == false)
+        //        {
+        //            Apple1.GetComponent<Collider2D>().enabled = false;
+        //            Apple2.GetComponent<Collider2D>().enabled = false;
+        //            Apple3.GetComponent<Collider2D>().enabled = false;
+        //        }
+        //    }
             
 
-        }
+        //}
         
 
         if(collision.gameObject.tag == "House")

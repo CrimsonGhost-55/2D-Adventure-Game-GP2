@@ -2924,6 +2924,10 @@ PrefabInstance:
       propertyPath: inventoryDisplay
       value: 
       objectReference: {fileID: 3172281990718667853}
+    - target: {fileID: 7563018243371064988, guid: e5032ab43b57ba4438e0922f938e7d51, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

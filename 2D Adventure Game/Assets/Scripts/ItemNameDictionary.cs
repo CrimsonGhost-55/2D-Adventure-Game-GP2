@@ -8,11 +8,14 @@ public class ItemNameDictionary : MonoBehaviour
     public string itemName;
     public int objectIndex;
     public int itemNumber = 1;
+    public bool isActive = false;
     //public int itemIndex;
     public PlayerNameDictionary myPlayer;
     public DialogManager dialogManager;
     public GameObject pickUp;
     // Start is called before the first frame update
+
+   
     void Start()
     {
         myPlayer = FindObjectOfType<PlayerNameDictionary>();
@@ -24,26 +27,26 @@ public class ItemNameDictionary : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        pickUp = GameObject.Find("PickUpText");
+        
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        if(collision.CompareTag("Player"))
+        {
+            isActive = true;
+        }
         pickUp.SetActive(true);
-        if (Input.GetKey(KeyCode.Space))
+        Debug.Log("I am on something");
+        if(isActive == true || Input.GetKey(KeyCode.Space))
         {
+            Debug.Log("Collecting item");
             Interact();
             AddItem();
             pickUp.SetActive(false);
             Destroy(gameObject);
         }
-        if (myPlayer.applesHaveFell == true && Input.GetKey(KeyCode.Space))
-        {
-            Interact();
-            AddItem();
-            pickUp.SetActive(false);
-            Destroy(gameObject);
-        }
+       
         
     }
 
