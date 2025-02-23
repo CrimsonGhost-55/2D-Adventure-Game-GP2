@@ -115,21 +115,8 @@ public class PlayerNameDictionary : MonoBehaviour
         //}
         
 
-        if(collision.gameObject.tag == "House")
-        {
-            Debug.Log("On House");
-            pickUp.SetActive(true);
-            if(Input.GetKey(KeyCode.Space))
-            {
-                SceneManager.LoadScene("GameScene2");
-                isInHouse = true;
-            }
-        }
         
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        pickUp.SetActive(false);
-    }
+    
 }

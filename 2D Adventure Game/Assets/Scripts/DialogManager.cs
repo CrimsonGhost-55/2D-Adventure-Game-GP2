@@ -23,20 +23,16 @@ public class DialogManager : MonoBehaviour
         
         if(playerIsNear && Input.GetKeyDown(KeyCode.Space))
         {
-            if (currentIndex < 5)
+            if (currentIndex < 6)
             {
                 dialogueDisplay.text = dialogue[currentIndex];
                 currentIndex++;
             }
-            /*else if(myPlayer.myInventoryDict.ContainsKey("Apple"))
+            else if(myPlayer.myInventoryDict.ContainsKey("Apple"))
             {
-                currentIndex = 6;
-                currentIndex++;
-                if (currentIndex > 7)
-                {
-                    SceneManager.LoadScene("EndScene");
-                }
-            }*/
+                 SceneManager.LoadScene("EndScene");
+                
+            }
             else
             {
                 dialogueDisplay.text = "";
