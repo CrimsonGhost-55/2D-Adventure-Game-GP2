@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 
 public class ItemNameDictionary : MonoBehaviour
@@ -12,7 +13,7 @@ public class ItemNameDictionary : MonoBehaviour
     //public int itemIndex;
     public PlayerNameDictionary myPlayer;
     public DialogManager dialogManager;
-    public GameObject pickUp;
+    public TextMeshProUGUI pickUp;
     // Start is called before the first frame update
 
    
@@ -20,8 +21,8 @@ public class ItemNameDictionary : MonoBehaviour
     {
         myPlayer = FindObjectOfType<PlayerNameDictionary>();
         dialogManager = FindObjectOfType<DialogManager>();
-        
-        pickUp.SetActive(false);
+
+        pickUp.enabled = false;
     }
 
     // Update is called once per frame
@@ -32,18 +33,19 @@ public class ItemNameDictionary : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.CompareTag("Player"))
-        {
-            isActive = true;
-        }
-        pickUp.SetActive(true);
+        //if(collision.CompareTag("Player"))
+        //{
+        //    isActive = true;
+        //}
+        pickUp.enabled = true;
+        
         Debug.Log("I am on something");
-        if(isActive == true || Input.GetKey(KeyCode.Space))
+        if(/*isActive == true ||*/ Input.GetKey(KeyCode.Space))
         {
             Debug.Log("Collecting item");
             Interact();
             AddItem();
-            pickUp.SetActive(false);
+            pickUp.enabled = false;
             Destroy(gameObject);
         }
        
@@ -52,7 +54,8 @@ public class ItemNameDictionary : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        pickUp.SetActive(false);
+        pickUp.enabled = false;
+
     }
 
 
@@ -71,6 +74,8 @@ public class ItemNameDictionary : MonoBehaviour
             
         }
         myPlayer.DisplayInventory();
+        
+        
     }
 
     public void Interact()

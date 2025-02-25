@@ -38,7 +38,7 @@ public class PlayerNameDictionary : MonoBehaviour
     {
         myInventoryDict.Add("Sword", 1);
         DisplayInventory();
-        pickUp.SetActive(false);
+        
         
     }
 

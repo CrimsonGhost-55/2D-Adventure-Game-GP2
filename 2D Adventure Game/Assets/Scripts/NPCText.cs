@@ -4,17 +4,19 @@ using System.Diagnostics;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using TMPro;
 
 
 public class NPCText : MonoBehaviour
 {
-    public GameObject dialoguePrompt;
+    public TextMeshProUGUI dialoguePrompt;
     public PlayerNameDictionary myPlayer;
     private bool playerIsNear = false;
     // Start is called before the first frame update
     void Start()
     {
-        dialoguePrompt.SetActive(false);
+        dialoguePrompt.enabled = false;
+        myPlayer = FindObjectOfType<PlayerNameDictionary>();
     }
 
     // Update is called once per frame
@@ -32,7 +34,7 @@ public class NPCText : MonoBehaviour
         if(collision.CompareTag("Player"))
         {
             playerIsNear = true;
-            dialoguePrompt.SetActive(true);
+            dialoguePrompt.enabled = true;
         }
         
     }
@@ -42,7 +44,7 @@ public class NPCText : MonoBehaviour
         if(collision.CompareTag("Player"))
         {
             playerIsNear = false;
-            dialoguePrompt.SetActive(false);
+            dialoguePrompt.enabled = false;
         }
         
     }

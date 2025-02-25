@@ -15,7 +15,8 @@ public class DialogManager : MonoBehaviour
     void Start()
     {
         dialogueDisplay.text = dialogue[currentIndex];
-            }
+        myPlayer = FindObjectOfType<PlayerNameDictionary>();
+    }
 
     // Update is called once per frame
     void Update()
