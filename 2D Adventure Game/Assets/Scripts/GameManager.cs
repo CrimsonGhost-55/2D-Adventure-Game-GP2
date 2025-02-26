@@ -30,5 +30,11 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             //SceneManager.LoadScene("");
         }
+        if (Input.GetKey(KeyCode.Return) && SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
+            //SceneManager.LoadScene("");
+        }
+
     }
 }

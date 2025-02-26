@@ -1466,6 +1466,7 @@ MonoBehaviour:
   isActive: 0
   myPlayer: {fileID: 0}
   dialogManager: {fileID: 0}
+  Canvas: {fileID: 8984262591823477780}
   pickUp: {fileID: 1542481710}
 --- !u!60 &1677342602
 PolygonCollider2D:
@@ -1715,6 +1716,7 @@ MonoBehaviour:
   isActive: 0
   myPlayer: {fileID: 0}
   dialogManager: {fileID: 0}
+  Canvas: {fileID: 8984262591823477780}
   pickUp: {fileID: 2618722568482726088, guid: e97fae0357e67044b91296efc061d4f3, type: 3}
 --- !u!212 &1709850521
 SpriteRenderer:
@@ -2043,6 +2045,10 @@ PrefabInstance:
     - target: {fileID: 1951195186465435614, guid: e97fae0357e67044b91296efc061d4f3, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951195186465435614, guid: e97fae0357e67044b91296efc061d4f3, type: 3}
+      propertyPath: m_TagString
+      value: PickUp
       objectReference: {fileID: 0}
     - target: {fileID: 2618722568482726088, guid: e97fae0357e67044b91296efc061d4f3, type: 3}
       propertyPath: m_Enabled
@@ -2388,6 +2394,7 @@ MonoBehaviour:
   isActive: 0
   myPlayer: {fileID: 0}
   dialogManager: {fileID: 0}
+  Canvas: {fileID: 8984262591823477780}
   pickUp: {fileID: 1542481710}
 --- !u!60 &2102739327
 PolygonCollider2D:
@@ -2711,6 +2718,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TextDisplay
       objectReference: {fileID: 0}
+    - target: {fileID: 5655899131411899428, guid: 7db75c60627306d4789d024391bdfec5, type: 3}
+      propertyPath: m_TagString
+      value: Dialogue
+      objectReference: {fileID: 0}
     - target: {fileID: 7350208083978074056, guid: 7db75c60627306d4789d024391bdfec5, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2961,7 +2972,6 @@ GameObject:
   - component: {fileID: 1593701094903697954}
   - component: {fileID: 147992536325027634}
   - component: {fileID: 6993873713549048781}
-  - component: {fileID: 8984262591823477781}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2969,18 +2979,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &8984262591823477781
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8984262591823477780}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a440a627ffb7bc4399e49e51774764c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

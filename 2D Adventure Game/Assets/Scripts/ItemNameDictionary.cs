@@ -13,6 +13,7 @@ public class ItemNameDictionary : MonoBehaviour
     //public int itemIndex;
     public PlayerNameDictionary myPlayer;
     public DialogManager dialogManager;
+    public GameObject Canvas;
     public TextMeshProUGUI pickUp;
     // Start is called before the first frame update
 
@@ -21,7 +22,9 @@ public class ItemNameDictionary : MonoBehaviour
     {
         myPlayer = FindObjectOfType<PlayerNameDictionary>();
         dialogManager = FindObjectOfType<DialogManager>();
-
+        GameObject Canvas = GameObject.Find("PickUpText");
+        TextMeshProUGUI PickUpText = pickUp.GetComponent<TextMeshProUGUI>();
+        PickUpText.SetText("Press Space to Interact");
         pickUp.enabled = false;
     }
 

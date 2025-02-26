@@ -31,8 +31,8 @@ public class DialogManager : MonoBehaviour
             }
             else if(myPlayer.myInventoryDict.ContainsKey("Apple"))
             {
-                 SceneManager.LoadScene("EndScene");
-                
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
             }
             else
             {

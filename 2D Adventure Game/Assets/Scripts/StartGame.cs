@@ -16,7 +16,8 @@ public class StartGame : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Return))
         {
-            SceneManager.LoadScene("GameScene1");
+            SceneManager.LoadScene("StartScene");
+            
         }
     }
 }
