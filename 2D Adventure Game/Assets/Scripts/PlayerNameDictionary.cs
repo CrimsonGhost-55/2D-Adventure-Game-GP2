@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 using System.Linq;
 
 
+
 public class PlayerNameDictionary : MonoBehaviour
 {
       public static PlayerNameDictionary Instance;
@@ -17,11 +18,11 @@ public class PlayerNameDictionary : MonoBehaviour
     public GameObject pickUp;
     public float speed = 0.1f;
     public bool applesHaveFell = false;
-    public bool isInHouse = false;
+    public bool gameHasEnded = false;
     public TextMeshProUGUI inventoryDisplay;
     public Dictionary<string, int> myInventoryDict = new Dictionary<string, int>();
 
-     private void Awake()
+    /* private void Awake()
     {
         if(Instance == null)
         {
@@ -32,14 +33,18 @@ public class PlayerNameDictionary : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
+    }*/
     // Start is called before the first frame update
     void Start()
     {
         myInventoryDict.Add("Sword", 1);
         DisplayInventory();
-        
-        
+        Player.transform.position = new Vector2(0f, 0f);
+        /*if(gameHasEnded == true)
+        {
+            Player.transform.position = new Vector2(0, 0);
+        }*/
+
     }
 
     // Update is called once per frame
@@ -65,11 +70,16 @@ public class PlayerNameDictionary : MonoBehaviour
 	    Player.transform.position += Vector3.right * speed;
             
         }
-    if(isInHouse == true && Input.GetKey(KeyCode.E))
+    if(SceneManager.GetActiveScene() == SceneManager.GetSceneByName("EndScene"))
         {
-            SceneManager.LoadScene("GameScene1");
-            isInHouse = false;
+            gameHasEnded = true;
+            myInventoryDict.Clear();
         }
+    /*if(gameHasEnded == true && SceneManager.GetActiveScene() == SceneManager.GetSceneByName("GameScene"))
+        {
+            Player.transform.position = new Vector2(0f, 0f);
+            gameHasEnded = false;
+        }*/
 
         //Apple1 = GameObject.Find("Apple1");
         //Apple2 = GameObject.Find("Apple2");
